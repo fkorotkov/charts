@@ -1,0 +1,13 @@
+container:
+  image: cirrusci/flutter:latest-web
+
+test_task:
+  pub_cache:
+    folder: ~/.pub-cache
+  common_tests_script:
+    - cd charts_common
+    - pub get
+  flutter_tests_script:
+    - cd charts_flutter
+    - pub get
+    - pub run test test -p chromium
